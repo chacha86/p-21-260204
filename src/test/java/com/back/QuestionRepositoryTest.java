@@ -117,11 +117,7 @@ public class QuestionRepositoryTest {
     void t6() {
         Question q1 = new Question();
         q1.setSubject("새 질문");
-
-        Answer a1 = new Answer();
-        a1.setContent("답글 1");
-
-        q1.addAnswer(a1);
+        q1.addAnswer("답글 1");
         questionRepository.save(q1);
         questionRepository.flush();
 
@@ -129,6 +125,20 @@ public class QuestionRepositoryTest {
 
         assertThat(foundedAnswer.getId()).isEqualTo(1);
         assertThat(foundedAnswer.getContent()).isEqualTo("답글 1");
+
+    }
+
+    @Test
+    @DisplayName("질문 삭제 with 답글")
+    void t7() {
+
+//        Answer a1 = answerRepository.findById(1).get();
+//        answerRepository.delete(a1);
+//        Answer a2 = answerRepository.findById(2).get();
+//        answerRepository.delete(a2);
+
+        Question q1 = questionRepository.findById(1).get();
+        questionRepository.delete(q1);
 
     }
 }
