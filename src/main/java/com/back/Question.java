@@ -19,7 +19,12 @@ public class Question {
     private String subject;
     private String content;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question", cascade = CascadeType.PERSIST)
     private List<Answer> answerList = new ArrayList<>();
 
+    // 이렇게 Question 내부에 메서드를 생성
+    public void addAnswer(Answer answer) {
+        answer.setQuestion(this);
+        answerList.add(answer);
+    }
 }
