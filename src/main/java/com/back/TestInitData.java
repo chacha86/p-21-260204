@@ -6,9 +6,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Profile;
 
-@Profile("test")
 @Configuration
 @RequiredArgsConstructor
 public class TestInitData {
@@ -30,8 +28,8 @@ public class TestInitData {
             q1.setSubject("sbb가 무엇인가요?");
             q1.setContent("sbb에 대해서 알고 싶습니다.");
 
-            q1.addAnswer("답글1");
-            q1.addAnswer("답글2");
+//            q1.addAnswer("답글1");
+//            q1.addAnswer("답글2");
 
             this.questionRepository.save(q1);  // 첫번째 질문 저장
 
